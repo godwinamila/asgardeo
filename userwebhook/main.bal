@@ -7,6 +7,12 @@ service /api on new http:Listener(8080) {
     resource function post submit(http:Caller caller, http:Request req) returns error? {
         json payload = check req.getJsonPayload();
         log:printInfo("Received payload: " + payload.toJsonString());
+
+        http:Response res = new;
+        res.setJsonPayload({ message: "Payload received successfully" });
+
+        // Send the response
+        check caller->respond(res);
     }
 
     // GET /webhook?hub.challenge=12345
