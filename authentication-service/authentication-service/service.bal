@@ -53,7 +53,7 @@ function createUser(string email) returns error?{
         //{"Operations":[{"op":"replace","value":{"urn:scim:wso2:schema":{"emailVerified":true}}},{"op":"replace","value":{"urn:scim:wso2:schema":{"phoneVerified":true}}}],"schemas":["urn:ietf:params:scim:api:messages:2.0:PatchOp"]}
         json newUser = {
             "userName": "DEFAULT/" + email,
-            "password": "Admin1234#",
+            "password": "test",
             "name": {
                 "givenName": "New",
                 "familyName": "User"
@@ -62,7 +62,7 @@ function createUser(string email) returns error?{
             "emails": [
                 {
                     "primary": true,
-                    "value": "godwincks@gmail.com",
+                    "value": "test",
                     "type": "home"
                 }
             ],
@@ -79,8 +79,8 @@ function createUser(string email) returns error?{
        
         http:Client httpClient = check new (url,
             auth = {
-                username: "admin@wso2.com@godwineu",
-                password: "Admin1234#"
+                username: "test",
+                password: "test"
             }
             // ,
             // secureSocket = {
